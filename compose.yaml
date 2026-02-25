@@ -48,8 +48,6 @@ services:
         condition: service_healthy
     expose:
       - "8000"
-    labels:
-      - "traefik.http.services.backend-${COOLIFY_RESOURCE_UUID:-mission}.loadbalancer.server.port=8000"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8000/healthz"]
       interval: 30s
